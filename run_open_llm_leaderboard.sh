@@ -1,17 +1,18 @@
 #!/bin/bash
 
-#SBATCH --time=10-12:00:00  # 2 days 12 hour of wall time
+#SBATCH --time=10-12:00:00  # 10 days 12 hour of wall time
 #SBATCH --nodes=1        # 1 GPU node
 #SBATCH --partition=gpu # GPU partition
 #SBATCH --ntasks=1       # 1 CPU core to drive GPU
 #SBATCH --gres=gpu:1     # Request 1 GPU
-#SBATCH --output=./log-Db.out # output log file
-#SBATCH --error=./error-Db.err  # error file
-#SBATCH -w gnode04
+#SBATCH --output=./log.out # output log file
+#SBATCH --error=./error.err  # error file
+
 
 echo "Job started at "`date`
 module purge
 
+# Activate conda env
 source ~/miniconda3/etc/profile.d/conda.sh
 conda activate llm
 
